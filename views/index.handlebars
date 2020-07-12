@@ -1,37 +1,37 @@
-<div class="img">
+<div class="main">
     <h1>Eat-Da-Burger</h1>
-    <img src="/assets/img/burger.png" alt="burger">
+    <img src="/assets/img/burger.jpg" alt="burger">
 </div>
 
-<div class="row">
-    <div class="col-xs-4 col-md-4">
+<div class="row mt-5">
+    <div class="text-center col-4">
         <h2>Available Burgers</h2>
-        <ul>
+      
             {{#each burgers}}
             {{#unless devoured }}
-            <li>
+            <li class="mt-1">
                 {{burger_name}}
                 <button class="devour" data-id="{{id}}">Devour!</button>
             </li>
             {{/unless}}
             {{/each}}
-        </ul>
+    
     </div>
-    <div class="col-xs-4 col-md-4">
+    <div class="text-center col-4">
         <form id="create-burger-form" action="/api/burgers" method="POST">
             <input type="text" name="burger_name">
             <button>Add Burger</button>
         </form>
     </div>
-    <div class="col-xs-4 col-md-4">
+    <div class="text-center col-4">
         <!-- Devoured Burger -->
         <h2>Devoured Burgers</h2>
-        <ul>
             {{#each burgers}}
             {{#if devoured}}
+            <li class="mt-1">
                 <button disabled>{{burger_name}}</button>
+            </li>
             {{/if}}
             {{/each}}
-        </ul>
     </div>
 </div>
